@@ -127,6 +127,8 @@ namespace HotelDAO.Models {
 		public string DeskId { get; set; }
 		public Desk Desk { get; set; }
 
+		public string WeChatOpenId { get; set; }
+
 		public ICollection<Remark> Remarks { get; set; }
 		public ICollection<DineMenu> DineMenus { get; set; }
 		public ICollection<DinePaidDetail> DinePaidDetails { get; set; }

@@ -39,7 +39,7 @@ namespace OrderSystem.Controllers {
 			}
 			User user;
 			bool succeeded;
-			if(await SigninManager.IsAuthenticated()) {
+			if(await SigninManager.IsAuthenticated() && await UserManager.IsInRoleAsync(User.Identity.GetUserId(), Role.Nemo)) {
 				user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
 				user.PhoneNumber = model.PhoneNumber;
 				user.UserName = model.PhoneNumber;

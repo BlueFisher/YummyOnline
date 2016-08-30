@@ -41,7 +41,8 @@ namespace AutoPrinter {
 				if(protocol.Dine.TakeOut.RecordId != null) {
 					printerG.DrawStringLine($"外卖平台编号: {protocol.Dine.TakeOut.RecordId}", protocol.PrinterFormat.ReciptBigFontSize);
 				}
-				printerG.DrawStringLine($"手机: {protocol.User.PhoneNumber}", protocol.PrinterFormat.ReciptBigFontSize);
+				printerG.DrawStringLine($"姓名: {protocol.Dine.TakeOut.Name}", protocol.PrinterFormat.ReciptBigFontSize);
+				printerG.DrawStringLine($"手机: {protocol.Dine.TakeOut.PhoneNumber}", protocol.PrinterFormat.ReciptBigFontSize);
 				printerG.DrawStringLine($"地址: {protocol.Dine.TakeOut.Address}", protocol.PrinterFormat.ReciptBigFontSize);
 			}
 

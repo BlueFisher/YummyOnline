@@ -23,6 +23,18 @@
 				</div>
 			</div>
 		</li>
+		<li class="list-group-item" ng-if="dine.Type == 1">
+			外卖 <span ng-if="dine.TakeOut.RecordId!=null">（{{dine.TakeOut.RecordId}}）</span>
+			<div>
+				地址：{{dine.TakeOut.Address}}
+			</div>
+			<div>
+				姓名：{{dine.TakeOut.Name}}
+			</div>
+			<div>
+				手机号：{{dine.TakeOut.PhoneNumber}}
+			</div>
+		</li>
 		<li class="list-group-item">
 			@* ngRepeat menu *@
 			<div class="row no-padding" ng-repeat="menu in dine.DineMenus">

@@ -69,6 +69,10 @@ namespace OrderSystem.Controllers {
 		public async Task<JsonResult> GetHistoryDines() {
 			return Json(await HotelManager.GetFormatedHistoryDines(User.Identity.GetUserId()));
 		}
+
+		public async Task<JsonResult> GetUserAddresses() {
+			return Json(await HotelManager.GetUserAddresses(User.Identity.GetUserId()));
+		}
 	}
 }
 

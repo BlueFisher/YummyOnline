@@ -21,9 +21,38 @@
 			</div>
 		</li>
 
+		<li class="list-group-item list-group-item-align" ng-if="cart.Desk.Area.Type == 1">
+			<div class="form-group no-margin">
+				<label>姓名</label>
+				<input type="text" class="form-control" ng-model="cart.TakeOut.Name">
+			</div>
+			<div class="form-group no-margin">
+				<label>地址</label>
+
+				<input type="text" class="form-control" ng-model="cart.TakeOut.Address" ng-if="userAddresses.length == 0">
+
+				<div class="input-group" ng-if="userAddresses.length > 0">
+					<input type="text" class="form-control" ng-model="cart.TakeOut.Address">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">选择地址 <span class="caret"></span></button>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li ng-repeat="address in userAddresses" ng-click="cart.TakeOut.Address = address">
+								<a href="javascript:;">{{address}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="form-group no-margin">
+				<label>手机号</label>
+				<input type="text" class="form-control" ng-model="cart.TakeOut.PhoneNumber">
+			</div>
+		</li>
+
 		<li class="list-group-item">
 			<div class="radio radio-paykind"
 				 ng-repeat="payKind in dataSet.PayKinds"
+				 ng-if="cart.Desk.Area.Type != 1 || payKind.Type != 3"
 				 ng-class="{'radio-paykind-offline': payKind.Type == 3}">
 				<input type="radio" name="PayKindId"
 					   ng-attr-id="{{'radio' + payKind.Id}}" ng-value="payKind" ng-model="cart.PayKind">

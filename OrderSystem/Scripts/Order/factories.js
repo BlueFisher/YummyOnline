@@ -173,6 +173,12 @@ app.factory('cart', [
 			Desk: null,
 			PayKind: null,
 			OrderedMenus: [],
+
+			TakeOut: {
+				Name: null,
+				Address: null,
+				PhoneNumber: null
+			},
 			/* Cart Data */
 
 			IsInitialized: false, // 是否初始化
@@ -409,6 +415,8 @@ app.factory('cart', [
 					PayKindId: this.PayKind.Id,
 
 					OrderedMenus: [],
+
+					TakeOut: this.TakeOut
 				}
 
 				for (var i in this.OrderedMenus) {

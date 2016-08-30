@@ -14,6 +14,10 @@ namespace HotelDAO.Models {
 
 		[MaxLength(128)]
 		public string Address { get; set; }
+		[MaxLength(11)]
+		public string PhoneNumber { get; set; }
+		[MaxLength(20)]
+		public string Name { get; set; }
 
 		public string RecordId { get; set; }
 	}

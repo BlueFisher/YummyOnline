@@ -132,6 +132,7 @@ namespace HotelDAO.Models {
 		public DayOfWeek OnSaleWeek { get; set; }
 
 		public decimal Price { get; set; }
+		public decimal MinPrice { get; set; }
 	}
 	/// <summary>
 	/// 套餐菜品表

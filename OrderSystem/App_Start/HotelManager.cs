@@ -10,7 +10,7 @@ namespace OrderSystem {
 		public HotelManager(string connString) : base(connString) { }
 
 		public async Task<Desk> GetDeskByQrCode(string qrCode) {
-			return await ctx.Desks.FirstOrDefaultAsync(p => p.QrCode == qrCode);
+			return await ctx.Desks.Include(p => p.Area).FirstOrDefaultAsync(p => p.QrCode == qrCode);
 		}
 
 		public async Task<PayKind> GetPayKindById(int payKindId) {
@@ -19,6 +19,10 @@ namespace OrderSystem {
 
 		public async Task<Customer> GetCustomer(string userId) {
 			return await ctx.Customers.Include(p => p.VipLevel).FirstOrDefaultAsync(p => p.Id == userId);
+		}
+		public async Task<List<string>> GetUserAddresses(string userId) {
+			YummyOnlineDAO.Models.YummyOnlineContext yummyOnlineCtx = new YummyOnlineDAO.Models.YummyOnlineContext();
+			return await yummyOnlineCtx.UserAddresses.Where(p => p.UserId == userId).Select(p => p.Address).ToListAsync();
 		}
 
 		public async Task<DinePaidDetail> GetDineOnlinePaidDetail(string dineId) {

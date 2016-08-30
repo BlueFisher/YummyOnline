@@ -159,7 +159,7 @@
 					'formatblock', 'fontsize', 'forecolor', 'hilitecolor', '|',
 					'justifyleft', 'justifycenter', 'justifyright', 'justifyfull', '|',
 					'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript', 'superscript', '|',
-					'bold', 'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat'
+					'bold', 'italic', 'underline', 'strikethrough', 'lineheight', 'quickformat', 'removeformat'
 				],
 			});
 		});

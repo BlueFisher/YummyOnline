@@ -36,8 +36,17 @@
 			</div>
 		</div>
 
-		<div ng-if="dine.Desk.AreaType == 1">
-			外卖地址：{{dine.TakeOut.Address}}
+		<div ng-if="dine.Type == 1">
+			外卖 <span ng-if="dine.TakeOut.RecordId!=null">（{{dine.TakeOut.RecordId}}）</span>
+			<div>
+				地址：{{dine.TakeOut.Address}}
+			</div>
+			<div>
+				姓名：{{dine.TakeOut.Name}}
+			</div>
+			<div>
+				手机号：{{dine.TakeOut.PhoneNumber}}
+			</div>
 		</div>
 
 		<div>顾客：{{dine.UserId}}</div>

@@ -88,6 +88,15 @@ app.controller('PaymentCtrl', [
 		$http.post('/Account/IsAuthenticated').then(function (response) {
 			if (response.data.Succeeded) {
 				$cart.Customer = response.data.Data;
+				if ($cart.Customer != null) {
+					$cart.TakeOut.PhoneNumber = $cart.Customer.PhoneNumber;
+				}
+			}
+		});
+		$http.post('/Order/GetUserAddresses').then(function (response) {
+			$scope.userAddresses = response.data;
+			if ($scope.userAddresses.length > 0) {
+				$cart.TakeOut.Address = $scope.userAddresses[0];
 			}
 		});
 

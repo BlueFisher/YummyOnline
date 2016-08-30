@@ -47,7 +47,7 @@ namespace YummyOnlineDAO.Identity {
 				return true;
 			}
 			catch(Exception e) {
-				await new YummyOnlineManager().RecordLog(Log.LogProgram.Identity, Log.LogLevel.Error, e.Message);
+				await new YummyOnlineManager().RecordLog(Log.LogProgram.Identity, Log.LogLevel.Error, e.Message, e.ToString());
 				return false;
 			}
 		}
@@ -71,7 +71,7 @@ namespace YummyOnlineDAO.Identity {
 				return true;
 			}
 			catch(Exception e) {
-				await new YummyOnlineManager().RecordLog(Log.LogProgram.Identity, Log.LogLevel.Error, e.Message);
+				await new YummyOnlineManager().RecordLog(Log.LogProgram.Identity, Log.LogLevel.Error, e.Message, e.ToString());
 				return false;
 			}
 		}
@@ -82,7 +82,7 @@ namespace YummyOnlineDAO.Identity {
 				return true;
 			}
 			catch(Exception e) {
-				await new YummyOnlineManager().RecordLog(Log.LogProgram.Identity, Log.LogLevel.Error, e.Message);
+				await new YummyOnlineManager().RecordLog(Log.LogProgram.Identity, Log.LogLevel.Error, e.Message, e.ToString());
 				return false;
 			}
 		}

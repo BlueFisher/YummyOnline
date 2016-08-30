@@ -75,6 +75,10 @@ body {
 		line-height: 30px;
 	}
 
+.no-margin {
+	margin: 0;
+}
+
 .row.no-padding {
 	margin: 0 -1px;
 }

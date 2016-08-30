@@ -13,7 +13,7 @@ namespace AutoPrinter {
 		public void Print(DineForPrinting protocol, List<PrintType> printTypes, bool isFullDineMenus) {
 			foreach(PrintType type in printTypes) {
 				if(type == PrintType.Recipt) {
-					if(protocol.Dine.Desk.ReciptPrinter == null) {
+					if(protocol.Dine.Desk.ReciptPrinter == null || protocol.Dine.Desk.ReciptPrinter.Name == "不打印") {
 						continue;
 					}
 
@@ -26,7 +26,7 @@ namespace AutoPrinter {
 					pd.Print();
 				}
 				else if(type == PrintType.ServeOrder) {
-					if(protocol.Dine.Desk.ServePrinter == null) {
+					if(protocol.Dine.Desk.ServePrinter == null || protocol.Dine.Desk.ServePrinter.Name == "不打印") {
 						continue;
 					}
 
@@ -40,7 +40,7 @@ namespace AutoPrinter {
 				}
 				else if(type == PrintType.KitchenOrder) {
 					foreach(DineMenu dineMenu in protocol.Dine.DineMenus.Where(p => p.Status != HotelDAO.Models.DineMenuStatus.Returned)) {
-						if(dineMenu.Menu.Printer == null) {
+						if(dineMenu.Menu.Printer == null || dineMenu.Menu.Printer.Name == "不打印") {
 							continue;
 						}
 

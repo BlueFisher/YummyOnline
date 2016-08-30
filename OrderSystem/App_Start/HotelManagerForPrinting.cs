@@ -144,6 +144,8 @@ namespace OrderSystem {
 				}).ToList(),
 				TakeOut = new Protocol.PrintingProtocol.TakeOut {
 					Address = p.TakeOut.Address,
+					Name = p.TakeOut.Name,
+					PhoneNumber = p.TakeOut.PhoneNumber,
 					RecordId = p.TakeOut.RecordId
 				}
 			});
@@ -179,19 +181,19 @@ namespace OrderSystem {
 			List<Protocol.PrintingProtocol.Shift> shifts = await ctx.Shifts
 				.Where(p => ids.Contains(p.Id) && SqlFunctions.DateDiff("day", p.DateTime, dateTime) == 0)
 				.Select(p => new Protocol.PrintingProtocol.Shift {
-				Id = p.Id,
-				DateTime = p.DateTime,
-				AveragePrice = p.AveragePrice,
-				CustomerCount = p.CustomerCount,
-				DeskCount = p.DeskCount,
-				GiftPrice = p.GiftPrice,
-				OriPrice = p.OriPrice,
-				PreferencePrice = p.PreferencePrice,
-				Price = p.Price,
-				ReturnedPrice = p.ReturnedPrice,
-				ToGoPrice = p.ToGoPrice,
-				ToStayPrice = p.ToStayPrice
-			}).ToListAsync();
+					Id = p.Id,
+					DateTime = p.DateTime,
+					AveragePrice = p.AveragePrice,
+					CustomerCount = p.CustomerCount,
+					DeskCount = p.DeskCount,
+					GiftPrice = p.GiftPrice,
+					OriPrice = p.OriPrice,
+					PreferencePrice = p.PreferencePrice,
+					Price = p.Price,
+					ReturnedPrice = p.ReturnedPrice,
+					ToGoPrice = p.ToGoPrice,
+					ToStayPrice = p.ToStayPrice
+				}).ToListAsync();
 
 			return shifts;
 		}

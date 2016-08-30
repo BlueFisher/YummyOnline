@@ -9,6 +9,11 @@ namespace OrderSystem.Models {
 		public int Ordered { get; set; }
 		public List<int> Remarks { get; set; } = new List<int>();
 	}
+	public class CartTakeOut {
+		public string Name { get; set; }
+		public string Address { get; set; }
+		public string PhoneNumber { get; set; }
+	}
 	public class Cart {
 		public int HeadCount { get; set; }
 		/// <summary>
@@ -26,6 +31,8 @@ namespace OrderSystem.Models {
 
 		public List<MenuExtension> OrderedMenus { get; set; } = new List<MenuExtension>();
 		public List<int> Remarks { get; set; } = new List<int>();
+
+		public CartTakeOut TakeOut { get; set; }
 	}
 	public class CartAddition {
 		public string UserId { get; set; }

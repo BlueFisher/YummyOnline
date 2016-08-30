@@ -25,7 +25,8 @@ namespace OrderSystem.Waiter {
 				.Select(p => new {
 					Area = new {
 						p.Area.Id,
-						p.Area.Name
+						p.Area.Name,
+						p.Area.Type
 					},
 					p.Id,
 					p.QrCode,
