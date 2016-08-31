@@ -862,7 +862,7 @@ namespace Management.Controllers
             }
             else
             {
-                PayKinds = await db.PayKinds.Where(d => d.Usable == true && (d.Type == PayKindType.Cash || d.Type == PayKindType.Offline || d.Type == PayKindType.Online)).ToListAsync();
+                PayKinds = await db.PayKinds.Where(d => d.Usable == true && (d.Type == PayKindType.Cash || d.Type == PayKindType.Offline || d.Type == PayKindType.Online || d.Type== PayKindType.RandomPreference)).ToListAsync();
             }
             var Dines = await db.Dines
            .Include(d => d.Desk.Area)
