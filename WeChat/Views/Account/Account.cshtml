@@ -17,10 +17,10 @@
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <style type="text/css">
-        .weui_cell_ft button{
+        .weui_cell_ft button {
             font-size: 11px;
-            width:80px;
-            height:44px;
+            width: 80px;
+            height: 44px;
         }
     </style>
 </head>
@@ -63,6 +63,74 @@
                             <input id="pswagain" class="weui_input" type="password" placeholder="请再次输入密码">
                         </div>
                     </div>
+                    <div class="weui_cell">
+                        <a id="popup" data-toggle="modal" data-target="#myModal">请仔细阅读《微信加入会员认证协议》</a>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close"
+                                        data-dismiss="modal" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    微信加入会员认证协议（用户版）
+                                </h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>一、总则</p>
+                                <p>1、餐饮行业商户的微信服务号是由餐饮行业商户（以下简称“商户”）向就餐用户（以下简称“用户”）提供的一款微信网络服务产品。</p>
+                                <p>2、用户确认在使用本协议之前，已充分阅读、理解并接受本协议的全部内容，在完成连接并开启服务流程时，即同意遵循本协议的所有约定。</p>
+                                <p>3、商户有权随时对本协议及相应的服务规则、内容进行单方面的变更,并以消息推送（含短信、微信消息）、网页公告等方式予以公布，无需另行单独通知。若用户在本协议内容公告变更后继续使用本服务，即表明用户已充分阅读、理解并接受修改后的协议内容，并将遵循修改后的规定；若用户不同意修改的，双方依据之前已使用的本协议内容进行修正。</p>
+                                <p>4、双方承诺在签订本协议时均已具备完全民事权利能力和完全民事行为能力的自然人、法人或其他组织，且具有经营合作范围符合有关法律法规和国家规定的经营资质。</p>
+                                <p>5、用户在通过设备进行网络连接时，应当按照法律规定，提供真实、准确和完整的资料。如用户提供的资料存在错误、虚假、过时或不完整的，商户有权向用户发出要求改正的通知，并有权直接删除相应资料、暂停或终止提供部分或全部服务。由此而产生的任何损失及责任由用户自行承担。</p>
+                                <br />
+                                <p>二、双方权利义务</p>
+                                <p>商户的权利和义务</p>
+                                <p>1、根据用户选择的服务提供合格的网络技术和信息服务。</p>
+                                <p>2、对于用户在使用微信服务号加入会员时提供的个人信息，商户有权在产品的服务范围内使用。</p>
+                                <p>3、承诺对用户的资料采取保密措施，不向第三方披露，授权使用前述资料，除非：</p>
+                                <p>&nbsp;&nbsp;（1）依据本协议条款或者与商户其他服务协议、合同、在线条款等规定可以提供的；</p>
+                                <p>&nbsp;&nbsp;（2）依据法律法规的规定应当提供的；</p>
+                                <p>&nbsp;&nbsp;（3）行政、司法等职权部门要求商户提供的；</p>
+                                <p>&nbsp;&nbsp;（4）用户同意商户向第三方提供的；</p>
+                                <p>&nbsp;&nbsp;（5）商户因解决举报事件、提起诉讼而提交的；</p>
+                                <p>&nbsp;&nbsp;（6）商户为防止严重违法行为或涉嫌犯罪行为发生而采取必要合理行动所必须提交的；</p>
+                                <p>&nbsp;&nbsp;（7）商户因向用户提供产品、服务、信息而向第三方提供的，包括商户通过第三方的技术及服务向用户提供产品、服务、信息的情况。</p>
+                                <p>用户的权利和义务</p>
+                                <p>1、用户加入商户微信会员，即代表授权同意接收与会员相关的优惠信息，含短信、微信通知，如不愿接收，也可在查收信息后退订。</p>
+                                <p>2、用户有权利享受商提供的互联网技术和信息服务，并有权利在接受服务时获得商户的技术支持、咨询等服务。</p>
+                                <p>3、用户保证不会利用技术或其他手段破坏或扰乱商户的其他互联网产品。</p>
+                                <p>4、用户应尊重商户及其他第三方的知识产权和其他合法权利，并保证在发生侵犯上述权益的违法事件时尽力保护商户及其股东、雇员、合作伙伴等免于因该等事件受到影响或损失；商户保留因用户侵犯本公司合法权益时终止提供服务的权利。</p>
+                                <p>5、因用户加入微信会员提供的联络方式有误而导致的一切后果，由用户自行承担责任，包括但不限于因用户未能及时收到商户的相关通知而导致的后果和损失。</p>
+                                <p>6、用户保证在使用本产品服务时，遵从国家、地方法律法规、行业惯例和社会公共道德，不会利用商户提供的服务进行存储、发布、传播如下信息和内容：</p>
+                                <p>违反国家法律法规政策的任何内容（信息）；违反国家规定的政治宣传和/或新闻信息；涉及国家秘密和/或安全的信息；封建迷信和/或淫秽、色情、下流的信息或教唆犯罪的信息；博彩有奖、赌博游戏；违反国家民族和宗教政策的信息；防碍互联网运行安全的信息；侵害他人合法权益的信息和/或其他有损于社会秩序、社会治安、公共道德的信息或内容。</p>
+                                <p>用户同时承诺不得为他人发布上述不符合国家规定和/或本服务条款约定的信息内容提供任何便利，包括但不限于设置URL、BANNER链接等。商户有权在用户违反上述约定时终止提供服务并不予退还任何款项，因用户上述行为给商户造成损失的，用户应予赔偿。</p>
+                                <br />
+                                <p>三、法律适用与管辖</p>
+                                <p>本协议之效力、解释、变更、执行与争议解决均适用中华人民共和国法律。因本协议产生之争议，双方应友好协商解决，协商不成的，任何一方均有权向上海仲裁委员会申请仲裁解决。仲裁裁决是终局的，对双方均具有约束力。</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default"
+                                        data-dismiss="modal">
+                                    关闭
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weui_cells weui_cells_checkbox">
+                    <label class="weui_cell weui_check_label">
+                        <div class="weui_cell_hd">
+                            <input type="checkbox" class="weui_check" name="checkbox" id="checkbox" checked="checked">
+                            <i class="weui_icon_checked"></i>
+                        </div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>我已同意以上用户协议</p>
+                        </div>
+                    </label>
                 </div>
                 <div class="weui_btn_area">
                     <button type="button" id="button" class="weui_btn weui_btn_primary">注册</button>
@@ -70,28 +138,6 @@
             </div>
         </div>
     </div>
-
-    @*<div>
-            <a href="www.baidu.com">《同意协议》</a>
-        </div>
-        <div class="container" id="=con">
-            <div class="cell">
-                <div class="bd">
-                    <div class="weui_cells weui_cells_checkbox">
-                        <label class="weui_cell weui_check_label" for="s11">
-                            <div class="weui_cell_hd">
-                                <input type="checkbox" class="weui_check" name="checkbox1" id="s11" checked="checked">
-                                <i class="weui_icon_checked"></i>
-                            </div>
-                            <div class="weui_cell_bd weui_cell_primary">
-                                <p>我同意以上协议</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/Script/Account.js"></script>
 </body>

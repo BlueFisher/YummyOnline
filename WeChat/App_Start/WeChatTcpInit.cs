@@ -13,7 +13,7 @@ namespace WeChat
         public async static Task Initialize(Action callBackWhenConnected, Action<string,object> CallBackWhenMessageReceived)
         {
             YummyOnlineDAO.Models.SystemConfig config = await new YummyOnlineManager().GetSystemConfig();
-            string guid = System.Configuration.ConfigurationManager.AppSettings["NewDineInformClientGuid"];
+            string guid = "E6C2FCCC-0EF6-4109-9AA3-40D72B0556BA";
             client = new TcpClient(System.Net.IPAddress.Parse(config.TcpServerIp), config.TcpServerPort, new Protocol.NewDineInformClientConnectProtocol(guid));
 
             client.CallBackWhenConnected = () => {

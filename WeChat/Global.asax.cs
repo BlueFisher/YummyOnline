@@ -38,45 +38,58 @@ namespace WeChat
             });
         }
 
-        protected async Task queryDine(NewDineInformProtocol p){
+        protected async Task queryDine(NewDineInformProtocol p)
+        {
 
             YummyOnlineManager manager = new YummyOnlineManager();
             string connStr = (await manager.GetHotelById(p.HotelId)).ConnectionString;
             HotelManager hotelManager = new HotelManager(connStr);
             var dine = await hotelManager.GetFormatedDineById(p.DineId);
             string openId = dine.WeChatOpenId;
-            decimal price =  dine.Price;
+            decimal price = dine.Price;
             DateTime time = dine.BeginTime;
             sendWeChatMsg(openId, price, time);
         }
 
-        protected void sendWeChatMsg(string openId, decimal price,DateTime beginTime){
+        protected async void sendWeChatMsg(string openId, decimal price, DateTime beginTime)
+        {
             var accessToken = AccessTokenContainer.GetAccessToken(AppConfig.AppId);
-            if (accessToken == null){
+            if (accessToken == null)
+            {
 
                 accessToken = AccessTokenContainer.TryGetAccessToken(AppConfig.AppId, AppConfig.AppSecret);
             }
 
-            var data = new {
+            var data = new
+            {
 
-                pay = new {
+                pay = new
+                {
                     value = price.ToString() + "元",
                     color = "#173177"
                 },
-                address = new {
+                address = new
+                {
                     value = "店小二点餐",
                     color = "#173177"
                 },
-                time = new {
-                   value = beginTime.ToString(),
-                   color = "#173177"
+                time = new
+                {
+                    value = beginTime.ToString(),
+                    color = "#173177"
                 }
             };
 
-            SendTemplateMessageResult  result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId,
-                AppConfig.TemplateIdForResponse,AppConfig.TemplateResponseUrl,data);
+            SendTemplateMessageResult result = Senparc.Weixin.MP.AdvancedAPIs.TemplateApi.SendTemplateMessage(accessToken, openId,
+                AppConfig.TemplateIdForResponse, AppConfig.TemplateResponseUrl, data);
+            if (result.errmsg != null)
+            {
+
+                await new YummyOnlineManager().RecordLog(YummyOnlineDAO.Models.Log.LogProgram.WeChat, YummyOnlineDAO.Models.Log.LogLevel.Success, result.errmsg);
+
+            }
         }
 
-        
+
     }
 }
