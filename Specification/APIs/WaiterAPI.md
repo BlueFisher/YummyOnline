@@ -99,7 +99,8 @@ waiter.yummyonline.net
 	}, ...],
 	"MenuOnSales": [{
 		"Id": <string>,
-		"Price": <float>
+		"Price": <float>,
+    	"MinPrice": <float>
 	}, ...],
 	"MenuSetMeals": [{
 		"MenuSetId": <string>,
@@ -641,3 +642,50 @@ waiter.yummyonline.net
 
 
 ------
+
+
+
+### 提交交接班数据
+
+#### POST ***AUTHORIZED***
+
+#### URL
+
+```
+/Order/AddShiftsInfo
+```
+
+#### Parameters
+
+```json
+{
+    "OricePrice": <float>,
+    "Price": <float>,
+    "ToStayPrice": <float>,
+    "ToGoPrice": <float>,
+    "PreferencePrice": <float>,
+    "GiftPrice": <float>,
+    "ReturnedPrice": <float>,
+    "AveragePrice": <float>,
+    "DeskCount": <int>,
+    "CustomerPrice": <int>,
+    "PayKindShifts": [{
+        "PayKindId": <int>,
+        "ReceivablePrice": <float>,
+        "RealPrice": <float>
+  	}, ...],
+ 	"MenuClassShifts": [{
+        "MenuClassId": <int>,
+        "Price": <float>
+	}, ...],
+}
+```
+
+#### Results
+
+```json
+{
+	"Succeeded": <bool>
+}
+```
+

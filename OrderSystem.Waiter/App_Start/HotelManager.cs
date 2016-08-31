@@ -91,6 +91,51 @@ namespace OrderSystem.Waiter {
 			}
 			await ctx.SaveChangesAsync();
 		}
+
+		public async Task AddShifts(Models.Shift shift) {
+			int id = 1;
+			DateTime now = DateTime.Now;
+			var Day = await ctx.PayKindShifts.Where(p => SqlFunctions.DateDiff("day", p.DateTime, now) == 0).ToListAsync();
+			if(Day.Count != 0) {
+				id = Day.Max(p => p.Id) + 1;
+			}
+
+			ctx.Shifts.Add(new Shift {
+				Id = id,
+				DateTime = now,
+				AveragePrice = shift.AveragePrice,
+				CustomerCount = shift.CustomerCount,
+				DeskCount = shift.DeskCount,
+				GiftPrice = shift.GiftPrice,
+				OriPrice = shift.OriPrice,
+				PreferencePrice = shift.PreferencePrice,
+				Price = shift.Price,
+				ReturnedPrice = shift.ReturnedPrice,
+				ToGoPrice = shift.ToGoPrice,
+				ToStayPrice = shift.ToStayPrice
+			});
+
+			shift.PayKindShifts.ForEach(p => {
+				ctx.PayKindShifts.Add(new PayKindShift {
+					Id = id,
+					DateTime = now,
+					PayKindId = p.PayKindId,
+					RealPrice = p.RealPrice,
+					ReceivablePrice = p.ReceivablePrice
+				});
+			});
+
+			shift.MenuClassShifts.ForEach(p => {
+				ctx.MenuClassShifts.Add(new MenuClassShift {
+					Id = id,
+					DateTime = now,
+					MenuClassId = p.MenuClassId,
+					Price = p.Price
+				});
+			});
+
+			await ctx.SaveChangesAsync();
+		}
 	}
 
 	// 服务员相关

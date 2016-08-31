@@ -55,6 +55,7 @@ namespace HotelDAO {
 				.Select(p => new {
 					p.Id,
 					p.Price,
+					p.MinPrice
 				});
 			return await linq.ToListAsync();
 		}

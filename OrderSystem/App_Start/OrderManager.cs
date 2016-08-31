@@ -370,14 +370,14 @@ namespace OrderSystem {
 				if(menuOnSale == null)
 					continue;
 
-				if(menuOnSale.MinPrice > dine.OriPrice - dineMenu.OriPrice) {
+				if(dine.From != DineFrom.CustomerBrowser && menuOnSale.MinPrice > dine.OriPrice - dineMenu.OriPrice) {
 					return new FunctionResult(false, $"{dineMenu.Menu.Name} 不满最低消费￥{menuOnSale.MinPrice}",
 						$"MenuOnSale Price Error, MenuId: {dineMenu.Menu.Id}, Dine OriPrice: {dine.OriPrice}");
 				}
 			}
 
 			// 检测前端计算的金额与后台计算的金额是否相同，如果前端金额为null则检测
-			if(Math.Abs(dine.Price - cartPrice.Value) > 0.01m) {
+			if(dine.From != DineFrom.CustomerBrowser && Math.Abs(dine.Price - cartPrice.Value) > 0.01m) {
 				return new FunctionResult(false, "金额有误",
 					$"Price Error, Cart Price: {cartPrice.Value}, Cal Price: {dine.Price}");
 			}

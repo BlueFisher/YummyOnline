@@ -76,21 +76,21 @@ namespace YummyOnline.Controllers {
 		[Authorize(Roles = nameof(Role.SuperAdmin))]
 		public async Task<JsonResult> CreateHotel(int hotelId, string databaseName) {
 			// 创建空数据库
-			OriginSql originSql = new OriginSql(new YummyOnlineContext().Database.Connection.ConnectionString);
-			var result = await originSql.CreateDatabase(databaseName);
-			if(!result.Succeeded) {
-				return Json(new JsonError(result.Message));
-			}
+			//OriginSql originSql = new OriginSql(new YummyOnlineContext().Database.Connection.ConnectionString);
+			//var result = await originSql.CreateDatabase(databaseName);
+			//if(!result.Succeeded) {
+			//	return Json(new JsonError(result.Message));
+			//}
 			// 总数据库记录连接字符串等信息
 			await YummyOnlineManager.CreateHotel(hotelId, databaseName);
 
 			// 新数据库写入所有表格等架构
 			Hotel newHotel = await YummyOnlineManager.GetHotelById(hotelId);
-			originSql = new OriginSql(newHotel.AdminConnectionString);
-			result = await originSql.InitializeHotel();
-			if(!result.Succeeded) {
-				return Json(new JsonError(result.Message));
-			}
+			//originSql = new OriginSql(newHotel.AdminConnectionString);
+			//result = await originSql.InitializeHotel();
+			//if(!result.Succeeded) {
+			//	return Json(new JsonError(result.Message));
+			//}
 
 			// 新数据库初始化
 			string staffId = await YummyOnlineManager.GetHotelAdminId(hotelId);

@@ -117,5 +117,11 @@ namespace OrderSystem.Waiter.Controllers {
 			}
 			return Json(new JsonSuccess());
 		}
+
+		public async Task<JsonResult> AddShiftsInfo(Models.Shift shift) {
+			await HotelManager.AddShifts(shift);
+			await HotelManager.RecordLog(Log.LogLevel.Info, $"Add Shifts Info", HttpPost.GetPostData(Request));
+			return Json(new JsonSuccess());
+		}
 	}
 }

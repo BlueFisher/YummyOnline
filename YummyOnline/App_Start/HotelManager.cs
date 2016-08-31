@@ -116,7 +116,7 @@ namespace YummyOnline {
 				ServeOrderSmallFontSize = 8,
 				ShiftBigFontSize = 12,
 				ShiftFontSize = 8,
-				ShiftSmallFontSize = 7
+				ShiftSmallFontSize = 7,
 			});
 			await ctx.SaveChangesAsync();
 		}
