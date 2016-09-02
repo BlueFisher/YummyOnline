@@ -19,10 +19,21 @@ namespace AutoPrinter {
 		async Task printDine(string dineId, List<int> dineMenuIds, List<PrintType> printTypes) {
 			DineForPrinting dp = null;
 			try {
-				dp = await getDineForPrinting(dineId, dineMenuIds);
-				if(dp == null) {
-					serverLog("获取订单信息失败，请检查网络设置", LogLevel.Error);
-					return;
+				int tryTimes = 1;
+				while(dp == null) {
+					dp = await getDineForPrinting(dineId, dineMenuIds);
+
+					if(dp == null) {
+						if(tryTimes < 5) {
+							serverLog($"获取订单信息{dineId}失败，开始第{tryTimes}次尝试", LogLevel.Error);
+						}
+						else {
+							serverLog($"获取订单信息{dineId}失败，已达尝试次数上限，请检查网络设置", LogLevel.Error);
+							return;
+						}
+
+						tryTimes++;
+					}
 				}
 
 				serverLog($"发送打印命令 单号: {dineId}", LogLevel.Info);
@@ -120,10 +131,21 @@ namespace AutoPrinter {
 			ShiftForPrinting sp = null;
 
 			try {
-				sp = await getShiftsForPrinting(ids, dateTime);
-				if(sp == null) {
-					serverLog("获取交接班信息失败，请检查网络设置", LogLevel.Error);
-					return;
+				int tryTimes = 1;
+				while(sp == null) {
+					sp = await getShiftsForPrinting(ids, dateTime);
+
+					if(sp == null) {
+						if(tryTimes < 5) {
+							serverLog($"获取交接班信息失败，开始第{tryTimes}次尝试", LogLevel.Error);
+						}
+						else {
+							serverLog("获取交接班信息失败，已达尝试次数上限，请检查网络设置", LogLevel.Error);
+							return;
+						}
+
+						tryTimes++;
+					}
 				}
 
 				serverLog($"发送打印命令 交接班", LogLevel.Info);
@@ -138,7 +160,7 @@ namespace AutoPrinter {
 				}
 
 				serverLog($"发送命令成功 交接班", LogLevel.Success);
-				
+
 				remoteLog(Log.LogLevel.Success, $"PrintShifts Completed, Ids: {idStr}, DateTime: {dateTime.ToString("yyyy-MM-dd")}");
 			}
 			catch(Exception e) {

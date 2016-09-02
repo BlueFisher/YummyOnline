@@ -61,7 +61,7 @@ namespace YummyOnline {
 				Type = PayKindType.Online,
 				Usable = true,
 				Discount = 1,
-				RedirectUrl = "/WeixinTest",
+				RedirectUrl = "http://wx.yummyonline.net/weixin/SendNew.aspx",
 				CompleteUrl = "/Payment/Complete",
 				NotifyUrl = "/Payment/OnlineNotify"
 			});
