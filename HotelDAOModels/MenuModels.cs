@@ -92,6 +92,7 @@ namespace HotelDAO.Models {
 
 		public bool Usable { get; set; }
 		public bool IsSetMeal { get; set; }
+		public bool IsOnlyInSetMeal { get; set; }
 
 		public int DepartmentId { get; set; }
 		public Department Department { get; set; }
