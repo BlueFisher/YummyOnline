@@ -39,7 +39,7 @@ namespace YummyOnlineTcpServer {
 
 		}
 		public async Task Initialize() {
-			YummyOnlineManager manag er = new YummyOnlineManager();
+			YummyOnlineManager manager = new YummyOnlineManager();
 
 			waitingForVerificationClients = new WaitingForVerificationClients(log, send);
 			systemClient = new SystemClient(log, send, GetTcpServerStatus);

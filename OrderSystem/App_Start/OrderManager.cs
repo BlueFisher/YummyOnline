@@ -370,7 +370,7 @@ namespace OrderSystem {
 				if(menuOnSale == null)
 					continue;
 
-				if(dine.From != DineFrom.CustomerBrowser && menuOnSale.MinPrice > dine.OriPrice - dineMenu.OriPrice) {
+				if(dine.From == DineFrom.CustomerBrowser && menuOnSale.MinPrice > dine.OriPrice - dineMenu.OriPrice) {
 					return new FunctionResult(false, $"{dineMenu.Menu.Name} 不满最低消费￥{menuOnSale.MinPrice}",
 						$"MenuOnSale Price Error, MenuId: {dineMenu.Menu.Id}, Dine OriPrice: {dine.OriPrice}");
 				}

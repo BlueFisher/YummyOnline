@@ -26,7 +26,7 @@ namespace OrderSystem {
 		}
 
 		public async Task<DinePaidDetail> GetDineOnlinePaidDetail(string dineId) {
-			return await ctx.DinePaidDetails.FirstOrDefaultAsync(p => p.DineId == dineId && p.PayKind.Type == PayKindType.Online);
+			return await ctx.DinePaidDetails.Include(p=>p.PayKind).FirstOrDefaultAsync(p => p.DineId == dineId && p.PayKind.Type == PayKindType.Online);
 		}
 
 		public async Task<bool> IsDinePaid(string dineId) {
