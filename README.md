@@ -1,5 +1,5 @@
 # YummyOnline
-This the main part of the project YummyOnline
+This the main part of the project YummyOnline.
 
 ## Websites
 
